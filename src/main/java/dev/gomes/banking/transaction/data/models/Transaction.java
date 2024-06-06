@@ -1,5 +1,6 @@
 package dev.gomes.banking.transaction.data.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -40,7 +41,7 @@ public class Transaction {
   private double amount;
 
   @Column(name = "due_date")
-  private LocalDateTime dueDate;
+  private LocalDate dueDate;
 
   @CreatedDate
   private LocalDateTime createdAt;

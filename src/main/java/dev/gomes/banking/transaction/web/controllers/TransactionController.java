@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,12 +29,12 @@ public class TransactionController {
   }
 
   @PostMapping
-  public ResponseEntity<Transaction> createTransaction(@Valid TransactionCreateRequest request) {
+  public ResponseEntity<Transaction> createTransaction(@Valid @RequestBody TransactionCreateRequest request) {
     return ResponseEntity.ok(transactionService.createTransaction(request));
   }
 
   @DeleteMapping
-  public ResponseEntity<Void> deleteTransaction(@Valid TransactionDeleteRequest request) {
+  public ResponseEntity<Void> deleteTransaction(@Valid @RequestBody TransactionDeleteRequest request) {
     transactionService.deleteTransaction(request);
 
     return ResponseEntity.noContent().build();

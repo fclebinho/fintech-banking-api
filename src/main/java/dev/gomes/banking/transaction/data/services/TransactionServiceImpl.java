@@ -23,6 +23,7 @@ public class TransactionServiceImpl implements TransactionService {
 
   @Override
   public Transaction createTransaction(TransactionCreateRequest request) {
+
     Transaction transaction = Transaction.builder()
         .description(request.getDescription())
         .type(request.getType())
