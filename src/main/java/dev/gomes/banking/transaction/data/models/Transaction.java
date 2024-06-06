@@ -1,7 +1,9 @@
 package dev.gomes.banking.transaction.data.models;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
+
+import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,13 +34,13 @@ public class Transaction {
   @Column(name = "status")
   private String status;
 
-  @Column(name = "due_date")
-  private Timestamp dueDate;
-
-  @Column(name = "created_at")
-  private Timestamp createdAt;
-
   @Column(name = "amount")
   private double amount;
+
+  @Column(name = "due_date")
+  private LocalDateTime dueDate;
+
+  @CreatedDate
+  private LocalDateTime createdAt;
 
 }
